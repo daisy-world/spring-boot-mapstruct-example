@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.easy2excel.dto.CustomerDTO;
+import com.app.easy2excel.dto.CustomerDetailsDTO;
 import com.app.easy2excel.entity.Customer;
 import com.app.easy2excel.service.CustomerService;
 
@@ -19,12 +20,17 @@ public class CustomerController {
 	CustomerService customerService;
 
 	@PostMapping("/customer")
-	public ResponseEntity<Customer> saveUser(@RequestBody CustomerDTO customerDTO) {
+	public ResponseEntity<Customer> saveCustomer(@RequestBody CustomerDTO customerDTO) {
 		return ResponseEntity.ok(customerService.saveCustomer(customerDTO));
 	}
 
 	@GetMapping("/customer/{id}")
-	public ResponseEntity<CustomerDTO> getUserById(@PathVariable Long id) {
+	public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id) {
 		return ResponseEntity.ok(customerService.getCustomerById(id));
+	}
+	
+	@GetMapping("/customer-details/{id}")
+	public ResponseEntity<CustomerDetailsDTO> getCustomerDetailsById(@PathVariable Long id) {
+		return ResponseEntity.ok(customerService.getCustomerDetailsById(id));
 	}
 }

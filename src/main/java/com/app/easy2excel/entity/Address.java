@@ -36,6 +36,5 @@ public class Address {
 	@Column(name = "zip_code")
 	private String zipCode;
 
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Customer customer;
+	
 }
