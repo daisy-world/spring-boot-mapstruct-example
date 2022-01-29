@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 public class ContactController {
     @Autowired
@@ -15,11 +14,12 @@ public class ContactController {
 
     @PostMapping("/contact")
     public ResponseEntity<Contact> saveContact(@RequestBody ContactDTO contactDTO){
-     return ResponseEntity.ok(contactService.saveCustomer(contactDTO));
+        System.out.println("inside save contact : "  + contactDTO);
+        return ResponseEntity.ok(contactService.saveContact(contactDTO));
     }
     @GetMapping("/contact/{id}")
     public ResponseEntity<ContactDTO> getContactById(@PathVariable Long id){
-    return ResponseEntity.ok(contactService.getCustomerById(id));
+        return ResponseEntity.ok(contactService.getContactById(id));
     }
 
 }

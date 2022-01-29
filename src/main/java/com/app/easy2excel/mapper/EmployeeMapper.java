@@ -1,17 +1,19 @@
 package com.app.easy2excel.mapper;
 
-import com.app.easy2excel.dto.EmployeeDTO;
-import com.app.easy2excel.entity.Employee;
+import java.time.LocalDate;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
-import java.time.LocalDate;
+import com.app.easy2excel.dto.EmployeeDTO;
+import com.app.easy2excel.entity.Employee;
 
+/*Mapping DataTypes*/
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
-
-    @Mapping(source = "dateOfJoining", target = "doj",qualifiedByName = "stringToLocalDate")
+	
+	@Mapping(source = "dateOfJoining", target = "doj",qualifiedByName = "stringToLocalDate")
     Employee toEntity(EmployeeDTO employeeDTO);
 
     @Mapping(source = "doj", target = "dateOfJoining",qualifiedByName = "localDateToString")

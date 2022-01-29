@@ -3,9 +3,9 @@ package com.app.easy2excel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.app.easy2excel.entity.User;
+import com.app.easy2excel.entity.Address;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Long>{
+public interface AddressRepository extends JpaRepository<Address,Long> {
 
 }

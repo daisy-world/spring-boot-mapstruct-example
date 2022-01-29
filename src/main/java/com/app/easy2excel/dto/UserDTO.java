@@ -1,14 +1,12 @@
 package com.app.easy2excel.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class UserDTO {
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String emailId;
-    private String contactNo;
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String emailId;
+	private String contactNo;
 }

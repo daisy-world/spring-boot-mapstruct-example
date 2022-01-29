@@ -4,7 +4,7 @@ import com.app.easy2excel.dto.ContactDTO;
 import com.app.easy2excel.entity.Contact;
 
 public interface ContactService {
-     Contact saveCustomer(ContactDTO contactDTO);
-     ContactDTO getCustomerById(Long id);
+    Contact saveContact(ContactDTO contactDTO);
+    ContactDTO getContactById(Long id);
 
 }

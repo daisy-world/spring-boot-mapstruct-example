@@ -4,6 +4,7 @@ import com.app.easy2excel.dto.ContactDTO;
 import com.app.easy2excel.entity.Contact;
 import org.mapstruct.Mapper;
 
+/*Basic Mappings*/
 @Mapper (componentModel = "spring")
 public interface ContactMapper {
 

@@ -1,35 +1,41 @@
 package com.app.easy2excel.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import lombok.Data;
 
-import javax.persistence.*;
-
 @Entity
-@Table(name="address")
+@Table(name = "address")
 @Data
 public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
 
-    @Column(name="address_1")
-    private String address1;
+	@Column(name = "address_1")
+	private String address1;
 
-    @Column(name="city")
-    private String city;
+	@Column(name = "city")
+	private String city;
 
-    @Column(name="state")
-    private String state;
+	@Column(name = "state")
+	private String state;
 
-    @Column(name="country")
-    private String country;
+	@Column(name = "country")
+	private String country;
 
-    @Column(name="pin_code")
-    private String pinCode;
+	@Column(name = "zip_code")
+	private String zipCode;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cust_add_fk", nullable = false)
-    private Customer customer;
-
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Customer customer;
 }

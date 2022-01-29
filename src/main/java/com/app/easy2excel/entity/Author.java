@@ -1,31 +1,34 @@
 package com.app.easy2excel.entity;
 
-import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
-@Table(name = "employee")
+@Table(name="author")
 @Data
-public class Employee {
+@ToString
+public class Author {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "author_id")
+	private Long authorId;
 
 	@Column(name = "name")
 	private String name;
-
-	@Column(name = "salary")
-	private float salary;
-
-	@Column(name = "doj")
-	private LocalDate doj;
+	
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Books> bookList;
 }
